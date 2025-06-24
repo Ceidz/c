@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ced Login</title>
+  <link rel="stylesheet" href="ced.css" />
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+
+      <div class="user-icon">
+        <div class="icon-circle">
+          <div class="icon-head"></div>
+          <div class="icon-body"></div>
+        </div>
+      </div>
+
+      <form class="form login-form" novalidate>
+        <h2>Login</h2>
+        <div class="warning-text" id="login-warning">Invalid username or password.</div>
+
+        <div class="input-group">
+          <input type="text" id="login-username" required placeholder=" " />
+          <label for="login-username">Username</label>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="login-password" required placeholder=" " />
+          <label for="login-password">Password</label>
+          <div class="toggle-password" onclick="togglePassword(this)"></div>
+        </div>
+
+        <div class="btn-container">
+          <button type="submit" id="login-btn">Login</button>
+        </div>
+
+        <div class="signup-text">
+          Don't have an account?
+          <a href="#" onclick="switchForm('signup')">Sign Up</a>
+        </div>
+      </form>
+
+      <form class="form signup-form hidden" novalidate>
+        <h2>Sign Up</h2>
+        <div class="warning-text" id="signup-warning">Passwords do not match.</div>
+
+        <div class="input-group">
+          <input type="text" id="signup-username" required placeholder=" " />
+          <label for="signup-username">Username</label>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="signup-password" required placeholder=" " />
+          <label for="signup-password">Password</label>
+          <div class="toggle-password" onclick="togglePassword(this)"></div>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="signup-confirm" required placeholder=" " />
+          <label for="signup-confirm">Confirm Password</label>
+          <div class="toggle-password" onclick="togglePassword(this)"></div>
+        </div>
+
+        <div class="btn-container">
+          <button type="submit" id="signup-btn">Sign Up</button>
+        </div>
+
+        <div class="signup-text">
+          Already have an account?
+          <a href="#" onclick="switchForm('login')">Login</a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <script src="ced.js"></script>
+</body>
+</html>
