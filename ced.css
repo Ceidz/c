@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e0faff;
+  background: linear-gradient(-45deg, #000000, #0a0a0a, #0f0f0f, #000000);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  overflow: hidden;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.login-container {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+.login-box {
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  padding: 30px 25px;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+  text-align: center;
+  position: relative;
+}
+
+.user-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  background-color: #003d4d;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.icon-head {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-bottom: 4px;
+}
+.icon-body {
+  width: 30px;
+  height: 14px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.input-group {
+  position: relative;
+  margin: 20px 0;
+}
+.input-group input {
+  width: 100%;
+  padding: 12px 40px 12px 10px;
+  font-size: 1rem;
+  background-color: #111;
+  border: 1.5px solid #444;
+  border-radius: 8px;
+  color: #e0faff;
+  outline: none;
+}
+.input-group input:focus {
+  border-color: #00ffff;
+  box-shadow: 0 0 8px #00ffff;
+}
+.input-group label {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  color: #888;
+  pointer-events: none;
+  background-color: #0f0f0f;
+  padding: 0 5px;
+  transition: 0.2s ease;
+}
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 0.75rem;
+  color: #00ffff;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border: 2px solid #00ffff;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.toggle-password::after {
+  content: "";
+  width: 10px;
+  height: 2px;
+  background: #00ffff;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  transform: rotate(45deg);
+}
+.toggle-password.active::after {
+  transform: rotate(0deg);
+}
+
+.btn-container {
+  margin-bottom: 25px;
+}
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background: #004d66;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s ease;
+}
+button.loading {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  padding: 0;
+}
+button.loading::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 3px solid #fff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.warning-text {
+  color: #ff4d4d;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  display: none;
+}
+.signup-text {
+  font-size: 0.85rem;
+  color: #bbb;
+}
+.signup-text a {
+  color: #00ffff;
+  text-decoration: none;
+}
+.form.hidden {
+  display: none;
+}
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #00cc99;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, bottom 0.4s ease;
+  z-index: 9999;
+}
+.toast.show {
+  opacity: 1;
+  bottom: 50px;
+}
+.success-glow {
+  box-shadow: 0 0 8px 2px limegreen;
+  border-color: limegreen !important;
+}
+.shake {
+  animation: shake 0.4s ease;
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+.form h2 {
+  margin-bottom: 20px;
+}
